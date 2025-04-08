@@ -269,6 +269,7 @@ def detect_single(args):
         # [print(result.shape) for result in results]
 
         imgs = draw(deepcopy(frames), results, detect.class_names, 2, draw_label=not args.no_label)
+        logger.info("ready to save imgs ")
         # print([im.shape for im in frames])
         for i, img in enumerate(imgs):
             # print(img.shape)
