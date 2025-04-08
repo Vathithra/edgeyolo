@@ -290,6 +290,7 @@ def detect_single(args):
                 # ori_img_name = fn + "_ori.jpg"
                 # output_file = fn + ".npy"
                 
+                logger.info(file_name)
                 cv2.imwrite(os.path.join(args.save_dir, file_name), img)
                 # cv2.imwrite(os.path.join(args.save_dir, ori_img_name), frames[i])
 
