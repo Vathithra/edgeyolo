@@ -209,6 +209,7 @@ def setup_source(args):
 
 
 def detect_single(args):
+    logger.info("detect_single started")
     import time
     exist_save_dir = os.path.isdir(args.save_dir)
 

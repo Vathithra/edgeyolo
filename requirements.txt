@@ -1,6 +1,6 @@
 torch
 torchvision
-opencv-python
+opencv-python==4.10.0
 numpy
 loguru
 pycocotools
