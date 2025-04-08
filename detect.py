@@ -277,6 +277,21 @@ def detect_single(args):
             count += 1
 
             key = cv2.waitKey(delay)
+            if not exist_save_dir:
+                os.makedirs(args.save_dir, exist_ok=True)
+                exist_save_dir = True
+            fn = f"{str(date.now()).split('.')[0].replace(':', '').replace('-', '').replace(' ', '')}"
+            file_name = fn + ".jpg"
+            # ori_img_name = fn + "_ori.jpg"
+            # output_file = fn + ".npy"
+            
+            logger.info(file_name)
+            cv2.imwrite(os.path.join(args.save_dir, file_name), img)
+            # cv2.imwrite(os.path.join(args.save_dir, ori_img_name), frames[i])
+
+            # np.save(os.path.join(args.save_dir, output_file), detect.net_outputs)
+            
+            logger.info(f"image saved to {file_name}.")
             if key in [ord("q"), 27]:
                 break
             elif key == ord(" "):
