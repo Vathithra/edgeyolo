@@ -216,6 +216,7 @@ def detect_single(args):
 
     # detector setup
     detector = TRTDetector if args.trt else Detector
+    logger.info("onnx detector selected")
     detect = detector(
         weight_file=args.weights,
         conf_thres=args.conf_thres,
