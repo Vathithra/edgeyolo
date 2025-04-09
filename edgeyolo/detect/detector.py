@@ -16,7 +16,12 @@ class Detector(EdgeYOLO):
 
     def __init__(self, weight_file, **kwargs):
         #logger.info("Detector class", Detector)
-        super(Detector, self).__init__(None, weight_file)
+        #if parent class nedded
+        super().__init__()
+        # super(Detector, self).__init__(None, weight_file)
+        
+        #assign the weight file to an instance
+        self.weight_file = weight_file
         
         for k, v in kwargs.items():
             if hasattr(self, k):
