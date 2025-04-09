@@ -226,9 +226,9 @@ def detect_single(args):
         fp16=args.fp16,
         use_decoder=args.use_decoder
     )
-    logger.info("detector values")
-    logger.info(vars(detect))
-    logger.info(detector.value)
+    # logger.info("detector values")
+    # logger.info(vars(detect))
+    #logger.info(detector.value)
     if args.trt:
         args.batch = detect.batch_size
 

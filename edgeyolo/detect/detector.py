@@ -11,7 +11,7 @@ class Detector(EdgeYOLO):
     conf_thres = 0.25
     nms_thres = 0.5
     fuse = True
-    cpu = False
+    cpu = True
     fp16 = False
     use_decoder = False
 
