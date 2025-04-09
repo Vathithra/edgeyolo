@@ -5,6 +5,8 @@ import torch
 import numpy as np
 from time import time
 
+from loguru import logger
+
 import onnx
 import onnxruntime as ort
 
