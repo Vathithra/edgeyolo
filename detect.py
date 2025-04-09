@@ -227,8 +227,8 @@ def detect_single(args):
         use_decoder=args.use_decoder
     )
     logger.info("detector values")
-    logger.info(detect)
-    logger.info(detector)
+    logger.info(vars(detect))
+    logger.info(detector.value)
     if args.trt:
         args.batch = detect.batch_size
 
