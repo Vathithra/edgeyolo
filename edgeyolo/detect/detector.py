@@ -5,6 +5,8 @@ import torch
 import numpy as np
 from time import time
 
+import onnx
+import onnxruntime as ort
 
 class Detector(EdgeYOLO):
 
@@ -17,7 +19,19 @@ class Detector(EdgeYOLO):
 
     def __init__(self, weight_file, **kwargs):
         #logger.info("Detector class", Detector)
-        super(Detector, self).__init__(None, weight_file)
+        # super(Detector, self).__init__(None, weight_file)
+
+        # Load the ONNX model
+        self.model = onnx.load(weight_file)
+        logger.info("onnx file details")
+        logger.info(onnx.checker.check_model(self.model))
+        onnx.checker.check_model(self.model)
+
+        # Create an inference session with ONNX Runtime
+        self.session = ort.InferenceSession(weight_file)
+
+        # Additional initialization code...
+    
         
         for k, v in kwargs.items():
             if hasattr(self, k):
