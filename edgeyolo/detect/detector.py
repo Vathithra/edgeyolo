@@ -5,6 +5,7 @@ import torch
 import numpy as np
 from time import time
 
+
 class Detector(EdgeYOLO):
 
     conf_thres = 0.25
@@ -16,12 +17,7 @@ class Detector(EdgeYOLO):
 
     def __init__(self, weight_file, **kwargs):
         #logger.info("Detector class", Detector)
-        #if parent class nedded
-        super().__init__()
-        # super(Detector, self).__init__(None, weight_file)
-        
-        #assign the weight file to an instance
-        self.weight_file = weight_file
+        super(Detector, self).__init__(None, weight_file)
         
         for k, v in kwargs.items():
             if hasattr(self, k):
