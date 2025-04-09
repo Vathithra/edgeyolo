@@ -86,8 +86,9 @@ class Detector(EdgeYOLO):
 
         with torch.no_grad():
             inputs, ratios = self.__preprocess(imgs)
-            if not self.cpu:
-                inputs = inputs.cuda()
+            if self.cpu:
+                inputs = inputs.cpu()
+                #inputs = inputs.cuda()
                 if legacy:
                     inputs /= 255
                 if self.fp16:
