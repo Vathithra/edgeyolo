@@ -48,7 +48,7 @@ class EdgeYOLO:
         if weights is not None and os.path.isfile(weights):
             if not rank:
                 logger.info(f"loading models from weight {os.path.abspath(weights)}")
-            self.ckpt = torch.load(weights, map_location="cpu", weights_only=True)
+            self.ckpt = torch.load(weights, map_location="cpu", weights_only=False)
             if write_cfg_to_weights:
                 if cfg_file is not None:
                     self.ckpt["cfg_data"] = open(cfg_file, "r", encoding="utf8").read()
