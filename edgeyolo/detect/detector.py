@@ -32,8 +32,9 @@ class Detector(EdgeYOLO):
                 self.model.fuse()
                 print("After re-parameterization:", get_model_info(self.model, self.input_size))
 
-        if not self.cpu:
-            self.model.cuda(0)
+        if self.cpu:
+            self.model.cpu()
+            # self.model.cuda(0)
             if self.fp16:
                 self.model.half()
         self.model.eval()
