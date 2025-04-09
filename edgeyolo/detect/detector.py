@@ -25,8 +25,8 @@ class Detector(EdgeYOLO):
 
         # Load the ONNX model
         self.model = onnx.load(weight_file)
-        logger.info("onnx file details")
-        logger.info(onnx.checker.check_model(self.model))
+        # logger.info("onnx file details")
+        # logger.info(onnx.checker.check_model(self.model))
         onnx.checker.check_model(self.model)
 
         # Create an inference session with ONNX Runtime
