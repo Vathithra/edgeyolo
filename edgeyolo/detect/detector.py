@@ -5,7 +5,6 @@ import torch
 import numpy as np
 from time import time
 
-
 class Detector(EdgeYOLO):
 
     conf_thres = 0.25
@@ -16,7 +15,7 @@ class Detector(EdgeYOLO):
     use_decoder = False
 
     def __init__(self, weight_file, **kwargs):
-        logger.info("Detector class", Detector)
+        #logger.info("Detector class", Detector)
         super(Detector, self).__init__(None, weight_file)
         
         for k, v in kwargs.items():
